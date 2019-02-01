@@ -1,0 +1,23 @@
+{
+  "extends": "@nuxt/typescript",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "module": "es2015",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "target": "es5",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "types": [
+      "@types/node",
+      "@nuxt/vue-app"
+    ]
+  }
+}

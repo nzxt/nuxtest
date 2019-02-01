@@ -1,9 +1,11 @@
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const pkg = require('./package')
 
+const isDev = process.env.NODE_ENV !== 'production'
+
 module.exports = {
   mode: 'spa',
-
+  modern: !isDev,
   /*
   ** Headers of the page
   */
@@ -33,7 +35,8 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/style/app.styl'
+    '~/assets/style/app.styl',
+    '@mdi/font/css/materialdesignicons.css'
   ],
 
   /*
@@ -56,6 +59,7 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    debug: isDev
   },
 
   /*
@@ -78,9 +82,12 @@ module.exports = {
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
-          test: /\.(js|vue)$/,
+          test: /\.(ts|js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
+          options: {
+            fix: true
+          }
         })
       }
     }

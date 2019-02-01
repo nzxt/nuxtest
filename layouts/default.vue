@@ -32,28 +32,35 @@
       <v-toolbar-side-icon @click="drawer = !drawer" />
       <v-btn
         icon
+        small
         @click.stop="miniVariant = !miniVariant"
       >
-        <v-icon>{{ `chevron_${miniVariant ? 'right' : 'left'}` }}</v-icon>
+        <v-icon>{{ `mdi-chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
       <v-btn
         icon
+        small
         @click.stop="clipped = !clipped"
       >
-        <v-icon>web</v-icon>
+        <v-icon>mdi-window-maximize</v-icon>
       </v-btn>
       <v-btn
         icon
+        small
         @click.stop="fixed = !fixed"
       >
-        <v-icon>remove</v-icon>
+        <v-icon>mdi-window-minimize</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="title" />
+      <n-link to="/redirect">
+        <v-toolbar-title class="logo" v-text="title" />
+      </n-link>
+      <v-spacer></v-spacer>
       <v-btn
         icon
+        small
         @click.stop="rightDrawer = !rightDrawer"
       >
-        <v-icon>menu</v-icon>
+        <v-icon>mdi-notification-clear-all</v-icon>
       </v-btn>
     </v-toolbar>
     <v-content>
@@ -70,8 +77,8 @@
       <v-list>
         <v-list-tile @click.native="right = !right">
           <v-list-tile-action>
-            <v-icon light>
-              compare_arrows
+            <v-icon>
+              mdi-texture
             </v-icon>
           </v-list-tile-action>
           <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
@@ -96,14 +103,14 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'apps',
+          icon: 'mdi-apps',
           title: 'Welcome',
           to: '/'
         },
         {
-          icon: 'bubble_chart',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'mdi-language-typescript',
+          title: 'TypeScript',
+          to: '/typescript'
         }
       ],
       miniVariant: false,
@@ -114,3 +121,9 @@ export default {
   }
 }
 </script>
+
+<style lang="styl">
+  .v-toolbar__content a
+    color: white
+    text-decoration: underline
+</style>
