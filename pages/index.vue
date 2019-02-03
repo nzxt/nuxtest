@@ -3,6 +3,7 @@
     column
     justify-center
     align-center
+    class="page"
   >
     <v-flex
       xs12

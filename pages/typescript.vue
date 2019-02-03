@@ -1,5 +1,5 @@
 <template>
-  <v-layout>
+  <v-layout class="page">
     <v-flex text-xs-center>
       <img
         src="/typescript.png"
