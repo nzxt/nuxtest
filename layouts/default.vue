@@ -24,7 +24,7 @@
         </v-list-tile>
       </v-list>
       <v-divider class="my-2"></v-divider>
-      <v-list two-line>
+      <v-list two-line v-if="$route.name === 'typescript'">
         <v-list-tile avatar href="#">
           <v-list-tile-avatar>
             <img src="/images/avatars/nzxtua.png" alt="Deniz True">
