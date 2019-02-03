@@ -23,6 +23,27 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
+      <v-divider class="my-2"></v-divider>
+      <v-list two-line>
+        <v-list-tile avatar href="#">
+          <v-list-tile-avatar>
+            <img src="/images/avatars/nzxtua.png" alt="Deniz True">
+          </v-list-tile-avatar>
+          <v-list-tile-content>
+            <v-list-tile-title v-text="`Deniz True`"></v-list-tile-title>
+            <v-list-tile-sub-title class="grey--text body-2" v-text="`In love w/ Vue.js`"></v-list-tile-sub-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile avatar href="#">
+          <v-list-tile-avatar>
+            <img src="/images/avatars/uliana.jpg" alt="Uliana Zhernokleva">
+          </v-list-tile-avatar>
+          <v-list-tile-content>
+            <v-list-tile-title v-text="`Uliana Zhernokleva`"></v-list-tile-title>
+            <v-list-tile-sub-title class="grey--text body-2" v-text="`In love w/ Vue.js`"></v-list-tile-sub-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
     </v-navigation-drawer>
     <v-toolbar
       :clipped-left="clipped"
