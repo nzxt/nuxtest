@@ -76,6 +76,26 @@
         <v-toolbar-title class="logo" v-text="title" />
       </n-link>
       <v-spacer></v-spacer>
+      <v-divider inset vertical class="mx-3 hidden-sm-and-down"></v-divider>
+      <v-layout row align-center hidden-sm-and-down style="max-width: 110px">
+        <v-tooltip bottom
+          v-for="locale in $i18n.locales"
+          :key="locale.code"
+        >
+          <n-link
+            slot="activator"
+            :to="switchLocalePath(locale.code)"
+          >
+            <div class="ma-2">
+              <flag :iso="locale.code" />
+            </div>
+            <!-- <img class="ma-2" height="24px" :src="`/lang/${locale.icon}`" /> -->
+          </n-link>
+          <span>{{ locale.name }}</span>
+        </v-tooltip>
+      </v-layout>
+      <v-divider inset vertical class="mx-3 hidden-sm-and-down"></v-divider>
+      <v-spacer></v-spacer>
       <v-btn
         icon
         small

@@ -15,6 +15,14 @@
         </footer>
       </blockquote>
     </v-flex>
+
+    <v-flex text-xs-center align-center>
+      {{ $t('welcome ') }}
+      <br />
+      {{ $t('bye') }}
+      <br />
+      {{ 'i18n here..' }}
+    </v-flex>
   </v-layout>
 </template>
 

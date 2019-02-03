@@ -43,7 +43,9 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/vuetify'
+    '@/plugins/vuetify',
+    '@/plugins/i18n',
+    '@/plugins/flag-icon'
   ],
 
   /*
@@ -52,7 +54,8 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    ['nuxt-i18n', require('./assets/config/nuxt-i18n')],
   ],
   /*
   ** Axios module configuration
@@ -90,6 +93,11 @@ module.exports = {
           }
         })
       }
+      config.module.rules.push({
+        resourceQuery: /blockType=i18n/,
+        type: 'javascript/auto',
+        loader: '@kazupon/vue-i18n-loader',
+      });
     }
   }
 }
