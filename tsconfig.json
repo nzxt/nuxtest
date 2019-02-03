@@ -6,13 +6,13 @@
     "strict": true,
     "noImplicitReturns": true,
     "noImplicitAny": false,
-    "module": "es2015",
+    "module": "esnext",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "moduleResolution": "node",
     "target": "es5",
     "lib": [
-      "es2018",
+      "esnext",
       "dom"
     ],
     "types": [
