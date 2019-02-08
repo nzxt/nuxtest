@@ -1,6 +1,7 @@
 {
   "extends": "@nuxt/typescript",
   "compilerOptions": {
+    "allowJs": true,
     "baseUrl": ".",
     "sourceMap": true,
     "strict": true,
@@ -10,6 +11,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "moduleResolution": "node",
+    "skipLibCheck": true,
     "target": "es5",
     "lib": [
       "esnext",

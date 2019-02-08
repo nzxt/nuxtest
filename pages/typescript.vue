@@ -19,11 +19,11 @@
 </template>
 
 <script lang="ts">
-  import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator';
 
-  @Component
-  export default class InspirePage extends Vue {
-    quote: String = 'First, move to strong typing. Then, write the code w/o problems.'
-    author: String = 'TypeScript'
-  }
+@Component
+export default class TypescriptPage extends Vue {
+  quote: String = 'First, move to strong typing. Then, write the code w/o problems.'
+  author: String = 'TypeScript'
+}
 </script>

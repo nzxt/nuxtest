@@ -23,11 +23,9 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-
-      <v-divider v-if="$route.path === '/typescript'" />
-
-      <v-list v-if="$route.path === '/typescript'" two-line class="py-0">
-        <!-- <v-list two-line> -->
+      <v-divider class="my-2" />
+      <!-- <v-list v-if="$route.name === 'typescript'" two-line> -->
+      <v-list two-line>
         <v-list-tile avatar href="#">
           <v-list-tile-avatar>
             <img src="/images/avatars/nzxtua.png" alt="Deniz True">
@@ -47,24 +45,26 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-
-      <v-divider class="mt-5" />
-
-      <v-list class="py-0">
-        <v-list-tile @click="darkTheme = !darkTheme">
+      <v-divider />
+      <v-list id="options">
+        <v-list-tile>
           <v-list-tile-action>
-            <v-icon v-text="`${darkTheme ? 'mdi-weather-night' : 'mdi-weather-sunny'}`" />
+            <v-switch
+              v-model="darkTheme"
+              color="grey darken-1"
+            />
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title
               class="subheading"
-              v-text="`Dark theme: ${darkTheme ? 'ON' : 'OFF'}`"
+              v-text="`DarkTheme ${darkTheme ? 'enabled' : 'disabled'}..`"
             />
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile @click="signOut">
           <v-list-tile-action>
             <v-icon
+              class="ml-1"
               v-text="'mdi-exit-run'"
             />
           </v-list-tile-action>
@@ -76,9 +76,7 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-      <v-divider />
     </v-navigation-drawer>
-
     <v-toolbar
       :clipped-left="clipped"
       fixed
@@ -106,13 +104,8 @@
       >
         <v-icon>mdi-window-minimize</v-icon>
       </v-btn>
-      <v-divider inset vertical class="mx-3" />
       <n-link to="/redirect">
-        <v-toolbar-title
-          id="logo-text"
-          :class="`${darkTheme ? 'grey--text text--darken-2' : 'grey--text text--lighten-1'}`"
-          v-html="title"
-        />
+        <v-toolbar-title class="logo" v-text="title" />
       </n-link>
       <v-spacer />
       <v-btn
@@ -124,40 +117,29 @@
       </v-btn>
       <v-btn
         icon
-        @click="$router.push('/account/login')"
+        small
+        to="/account/login"
       >
-        <v-icon class="mdi-36px">
-          mdi-account-circle-outline
-        </v-icon>
+        <v-icon>mdi-account</v-icon>
       </v-btn>
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height>
+      <v-container>
         <nuxt class="page" />
       </v-container>
     </v-content>
     <v-navigation-drawer
       v-model="rightDrawer"
       :right="right"
-      width="420"
       temporary
       fixed
     >
-      <v-list two-line class="pt-0">
-        <v-list-tile class="grey" @click.native="right = !right">
+      <v-list>
+        <v-list-tile @click.native="right = !right">
           <v-list-tile-action>
-            <v-icon class="mdi-36px" color="deep-orange darken-2">
-              mdi-drag-variant
-            </v-icon>
+            <v-icon>mdi-texture</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title class="subheading">
-              {{ 'Action Center' | uppercase }}
-            </v-list-tile-title>
-            <v-list-tile-sub-title class="body-1">
-              You notifications here..
-            </v-list-tile-sub-title>
-          </v-list-tile-content>
+          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -166,7 +148,7 @@
       class="px-3"
       app
     >
-      <span>2019 &copy; {{ description }}</span>
+      <span>&copy; 2019</span>
     </v-footer>
   </v-app>
 </template>
@@ -175,15 +157,15 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({})
-export default class DefaultLayout extends Vue {
+export default class AccountLayout extends Vue {
   clipped: Boolean = false
-  drawer: Boolean = true
+  drawer: Boolean = false
   fixed: Boolean = false
   miniVariant: Boolean = false
   right: Boolean = true
   rightDrawer: Boolean = false
-  darkTheme: Boolean = false
-
+  darkTheme: Boolean = true
+  title: String = 'Vuetify.js'
   items: Array<any> = [
     {
       icon: 'mdi-apps',
@@ -205,15 +187,15 @@ export default class DefaultLayout extends Vue {
   signOut() {
     return this.$auth.logout();
   }
-
-  get title(): String { return '<span class="deep-orange--text text--lighten1">S</span>ales <span class="deep-orange--text text--lighten1">A</span>ssessment <span class="deep-orange--text text--lighten1">C</span>enter'; };
-  get description(): String | undefined { return (process.env.DESCRIPTION || '[SAC]'); };
 }
 </script>
 
 <style lang="stylus">
-// .abbreviation
-#logo-text
-  font-size 36px
-  font-weight 600
+.v-toolbar__content a
+  color: #f5f5f5
+  text-decoration: none
+
+#options
+  position: absolute
+  bottom: 0
 </style>

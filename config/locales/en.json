@@ -1,0 +1,31 @@
+{
+  "actions": "Actions",
+  "yes": "Yes",
+  "no": "No",
+  "edit": "Edit",
+  "password": "Password",
+  "password_confirm": "Confirm Password",
+  "signin": "Sign In",
+  "login": "Login",
+  "forgot_password": "Forgot Password?",
+  "remove": "Remove",
+  "destroy_confirm_title": "Please Confirm",
+  "destroy_confirm": "Are you sure you want to remove this?",
+  "logout": "Log Out",
+  "signout": "Sign Out",
+  "back": "Back",
+  "save": "Save",
+  "update": "Update",
+  "forms": {
+    "errors": {
+      "required": "Please fill this out.",
+      "standard": "A server error occurred."
+    }
+  },
+  "cars": {
+    "singular": "car",
+    "plural": "cars",
+    "new": "New Car",
+    "edit": "Edit Car"
+  }
+}
