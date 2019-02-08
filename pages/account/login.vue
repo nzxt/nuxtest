@@ -1,11 +1,11 @@
 <template>
   <v-container>
-    <v-layout align-center justify-center>
+    <v-layout justify-center>
       <v-flex xs12 sm8 md6>
-        <v-card class="elevation-12">
-          <v-toolbar dark color="primary">
+        <v-card class="elevation-12 card--flex-toolbar" style="z-index:9">
+          <v-toolbar card prominent dark color="grey darken-1">
             <v-toolbar-title>
-              Please SignIn..
+              SignIn please..
             </v-toolbar-title>
             <v-spacer />
             <v-tooltip left>
@@ -45,6 +45,7 @@
                 block
                 color="primary"
                 type="submit"
+                class="elevation-0"
                 :loading="loading"
               >
                 {{ $t('signin') }}
@@ -92,7 +93,6 @@ import { Component, Vue } from 'vue-property-decorator';
 })
 export default class LoginPage extends Vue {
   loading: Boolean = false
-  drawer: String | null = null
   login: String = 'admin'
   password: String = 'qwerty'
 
@@ -100,8 +100,10 @@ export default class LoginPage extends Vue {
     this.loading = true;
     // this.$axios.$post('/api/Account/Login', {
     this.$auth.loginWith('local', {
-      data: { userName: this.login,
-        password: this.password }
+      data: {
+        userName: this.login,
+        password: this.password
+      }
     })
       .then(() => {
         this.loading = false;
@@ -109,3 +111,8 @@ export default class LoginPage extends Vue {
   }
 }
 </script>
+
+<style lang="stylus">
+.card--flex-toolbar
+  margin-top -88px
+</style>

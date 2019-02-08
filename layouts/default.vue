@@ -107,9 +107,8 @@
         <v-icon>mdi-window-minimize</v-icon>
       </v-btn>
       <v-divider inset vertical class="mx-3" />
-      <n-link to="/redirect">
+      <n-link id="logo" to="/redirect">
         <v-toolbar-title
-          id="logo-text"
           :class="`${darkTheme ? 'grey--text text--darken-2' : 'grey--text text--lighten-1'}`"
           v-html="title"
         />
@@ -212,8 +211,9 @@ export default class DefaultLayout extends Vue {
 </script>
 
 <style lang="stylus">
-// .abbreviation
-#logo-text
-  font-size 36px
-  font-weight 600
+#logo
+  text-decoration-line none
+  .v-toolbar__title
+    font-size 36px
+    font-weight 600
 </style>

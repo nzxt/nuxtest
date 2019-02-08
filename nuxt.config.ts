@@ -93,15 +93,15 @@ module.exports = {
         // _scheme: 'local',
         endpoints: {
           login: {
-            url: `${process.env.BASE_URL}/api/Account/login`,
+            url: `${process.env.API_URL}/api/Account/login`,
             method: 'post'
           },
           logout: {
-            url: `${process.env.BASE_URL}/api/Account/logout`,
+            url: `${process.env.API_URL}/api/Account/logout`,
             method: 'get'
           },
           user: {
-            url: `${process.env.BASE_URL}/api/Account/getProfile`,
+            url: `${process.env.API_URL}/api/Account/getProfile`,
             method: 'get',
             propertyName: '' // propertyName needs to be exact equal ''
           }
