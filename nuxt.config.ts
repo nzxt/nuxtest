@@ -59,7 +59,9 @@ module.exports = {
   plugins: [
     '@/plugins/axios',
     '@/plugins/vuetify',
-    '@/plugins/filters'
+    '@/plugins/i18n',
+    '@/plugins/filters',
+    '@/plugins/flag-icon'
   ],
 
   /*
@@ -93,15 +95,15 @@ module.exports = {
         // _scheme: 'local',
         endpoints: {
           login: {
-            url: `${process.env.API_URL}/api/Account/login`,
+            url: `${process.env.API_URL}/api/account/login`,
             method: 'post'
           },
           logout: {
-            url: `${process.env.API_URL}/api/Account/logout`,
+            url: `${process.env.API_URL}/api/account/logout`,
             method: 'get'
           },
           user: {
-            url: `${process.env.API_URL}/api/Account/getProfile`,
+            url: `${process.env.API_URL}/api/account/getprofile`,
             method: 'get',
             propertyName: '' // propertyName needs to be exact equal ''
           }
@@ -152,8 +154,14 @@ module.exports = {
           options: {
             fix: true
           }
-        })
+        });
       }
+
+      // config.module.rules.push({
+      //   resourceQuery: /blockType=i18n/,
+      //   type: 'javascript/auto',
+      //   loader: '@kazupon/vue-i18n-loader',
+      // });
     }
   }
 }

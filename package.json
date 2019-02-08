@@ -21,12 +21,14 @@
     "cross-env": "^5.2.0",
     "nuxt-i18n": "^5.8.0",
     "nuxt-ts": "^2.4.3",
+    "vue-flag-icon": "^1.0.6",
     "vue-property-decorator": "^7.3.0",
     "vue2-filters": "^0.4.1",
     "vuetify": "^1.5.0",
     "vuetify-loader": "^1.2.0"
   },
   "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
     "@nuxtjs/eslint-config": "^0.0.1",
     "babel-eslint": "^8.2.1",
     "eslint": "^5.0.1",

@@ -1,17 +1,17 @@
 {
   "extends": "@nuxt/typescript",
   "compilerOptions": {
-    "allowJs": true,
     "baseUrl": ".",
+    "allowJs": true,
     "sourceMap": true,
     "strict": true,
     "noImplicitReturns": true,
     "noImplicitAny": false,
-    "module": "esnext",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
+    "module": "esnext",
     "target": "es5",
     "lib": [
       "esnext",

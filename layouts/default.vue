@@ -58,7 +58,7 @@
           <v-list-tile-content>
             <v-list-tile-title
               class="subheading"
-              v-text="`Dark theme: ${darkTheme ? 'ON' : 'OFF'}`"
+              v-text="`Dark: ${darkTheme ? 'ON' : 'OFF'}`"
             />
           </v-list-tile-content>
         </v-list-tile>
@@ -114,6 +114,31 @@
         />
       </n-link>
       <v-spacer />
+
+      <v-divider inset vertical class="mx-3 hidden-sm-and-down" />
+
+      <v-layout row align-center hidden-sm-and-down style="max-width: 110px">
+        <v-tooltip
+          v-for="locale in $i18n.locales"
+          :key="locale.code"
+          bottom
+        >
+          <n-link
+            slot="activator"
+            :to="switchLocalePath(locale.code)"
+          >
+            <div class="ma-2">
+              <flag :iso="locale.flag" />
+            </div>
+          </n-link>
+          <span>{{ locale.name }}</span>
+        </v-tooltip>
+      </v-layout>
+
+      <v-divider inset vertical class="mx-3 hidden-sm-and-down" />
+
+      <v-spacer />
+
       <v-btn
         icon
         small
@@ -130,11 +155,13 @@
         </v-icon>
       </v-btn>
     </v-toolbar>
+
     <v-content>
       <v-container fluid fill-height>
         <nuxt class="page" />
       </v-container>
     </v-content>
+
     <v-navigation-drawer
       v-model="rightDrawer"
       :right="right"
@@ -216,4 +243,8 @@ export default class DefaultLayout extends Vue {
   .v-toolbar__title
     font-size 36px
     font-weight 600
+
+.flag-icon
+  font-size 22px
+  border-radius 50%
 </style>

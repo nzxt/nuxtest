@@ -13,7 +13,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'indent': ['error', 2],
-    'linebreak-style': ['error', 'windows'],
+    // 'linebreak-style': ['error', 'windows'],
     'no-trailing-spaces': ['error'],
     'quotes': ['error', 'single'],
     'semi': ['error', 'always'],
