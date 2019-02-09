@@ -1,8 +1,28 @@
 {
+  "svg": {
+	"text1": [
+	  "You",
+	  "Are",
+	  "Welcome"
+	],
+	"text2": [
+	  "Sales",
+	  "Assessment",
+	  "Center"
+	],
+	"text3": [
+	  "Let's",
+	  "Play",
+	  "Tests"
+	]
+  },
+  "title": "Sales Assessment Center",
+  "title_html": "<span class='deep-orange--text text--lighten1'>S</span>ales <span class='deep-orange--text text--lighten1'>A</span>ssessment <span class='deep-orange--text text--lighten1'>C</span>enter",
   "actions": "Actions",
   "yes": "Yes",
   "no": "No",
   "edit": "Edit",
+  "username": "Username",
   "password": "Password",
   "password_confirm": "Confirm Password",
   "signin": "Sign In",

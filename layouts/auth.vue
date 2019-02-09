@@ -2,21 +2,18 @@
   <v-app :dark="darkTheme">
     <v-toolbar
       extended
-      fixed
       flat
       app
     >
-      <n-link id="logo" to="/">
+      <n-link id="logo" :to="localePath('index')">
         <v-toolbar-title
           id="logo-text"
           :class="`${darkTheme ? 'grey--text text--darken-2' : 'grey--text text--lighten-1'}`"
-          v-html="title"
+          v-html="$t('title_html')"
         />
       </n-link>
 
       <v-spacer />
-
-      <v-divider inset vertical class="mx-3 hidden-sm-and-down" />
 
       <v-layout row align-center hidden-sm-and-down style="max-width: 110px">
         <v-tooltip
@@ -38,11 +35,9 @@
 
       <v-divider inset vertical class="mx-3 hidden-sm-and-down" />
 
-      <v-spacer />
-
       <v-btn
         icon
-        @click.stop="$router.push('/account/login')"
+        :to="localePath('login')"
       >
         <v-icon class="mdi-36px">
           mdi-account-circle-outline
@@ -52,7 +47,7 @@
 
     <v-content>
       <!-- <v-container fluid fill-height> -->
-      <nuxt class="page" />
+      <nuxt />
       <!-- </v-container> -->
     </v-content>
 
@@ -68,8 +63,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-@Component({})
-export default class DefaultLayout extends Vue {
+@Component
+export default class AuthLayout extends Vue {
   darkTheme: Boolean = true
 
   get title(): String { return '<span class="deep-orange--text text--lighten1">S</span>ales <span class="deep-orange--text text--lighten1">A</span>ssessment <span class="deep-orange--text text--lighten1">C</span>enter' };

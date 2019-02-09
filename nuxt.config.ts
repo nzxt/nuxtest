@@ -13,11 +13,12 @@ module.exports = {
     API_URL,
     DESCRIPTION: pkg.description
   },
+
   /*
   ** Headers of the page
   */
   head: {
-    title: '[Sales Assessment Center]',
+    title: '[SAC]',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -50,7 +51,8 @@ module.exports = {
   */
   css: [
     '~/assets/style/app.styl',
-    '@mdi/font/css/materialdesignicons.css'
+    '@mdi/font/css/materialdesignicons.css',
+    'vuejs-noty/dist/vuejs-noty.css',
   ],
 
   /*
@@ -61,7 +63,8 @@ module.exports = {
     '@/plugins/vuetify',
     '@/plugins/i18n',
     '@/plugins/filters',
-    '@/plugins/flag-icon'
+    '@/plugins/flag-icon',
+    '@/plugins/noty',
   ],
 
   /*
@@ -75,6 +78,7 @@ module.exports = {
     '@nuxtjs/auth',
     ['nuxt-i18n', i18n]
   ],
+
   /*
   ** Axios module configuration
   */
@@ -84,15 +88,18 @@ module.exports = {
     proxy: false,
     credentials: true,
     baseURL: API_URL,
-    redirectError: {
-      // 401: '/account/login'
+    // redirectError: {
+      // 401: '/account/login/'
       // 404: '/notfound'
-    }
+    // }
   },
+
+  /*
+  ** Auth module configuration
+  */
   auth: {
     strategies: {
       local: {
-        // _scheme: 'local',
         endpoints: {
           login: {
             url: `${process.env.API_URL}/api/account/login`,
@@ -115,9 +122,9 @@ module.exports = {
     rewriteRedirects: true,
     resetOnError: true,
     redirect: {
-      login: '/account/login/',
-      logout: '/account/login/',
-      callback: false,
+      login: '/login',
+      logout: '/login',
+      callback: '/',
       home: '/'
     },
     localStorage: false,
@@ -128,6 +135,7 @@ module.exports = {
   router: {
     middleware: ['auth']
   },
+
   /*
   ** Build configuration
   */

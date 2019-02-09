@@ -1,11 +1,11 @@
 <template>
   <v-container>
     <v-layout justify-center>
-      <v-flex xs12 sm8 md6>
-        <v-card class="elevation-12 card--flex-toolbar">
-          <v-toolbar card prominent dark color="grey darken-1">
+      <v-flex xs12 sm8 md7>
+        <v-card class="card--flex-toolbar">
+          <v-toolbar card prominent dark color="grey darken-2">
             <v-toolbar-title>
-              {{ $t('messages.signin_tip') }}
+              {{ $t('messages.signin_title') }}
             </v-toolbar-title>
             <v-spacer />
             <v-tooltip v-model="showSignInTip" left>
@@ -21,11 +21,11 @@
           <v-form @submit.stop.prevent="signIn">
             <v-card-text>
               <v-text-field
-                v-model="login"
+                v-model="username"
                 clearable
                 prepend-icon="person"
-                name="login"
-                :label="$t('login')"
+                name="username"
+                :label="$t('username')"
                 type="text"
               />
               <v-text-field
@@ -41,10 +41,8 @@
 
             <v-card-actions>
               <v-btn
-                dark
                 block
-                color="primary"
-                type="submit"
+                color="light-green darken-3"
                 class="elevation-0"
                 :loading="loading"
               >
@@ -87,29 +85,18 @@ export default {
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import AuthMixin from '~/mixins/auth'
 
 @Component({
-  layout: 'account'
+  auth: false,
+  layout: 'auth',
+  mixins: [AuthMixin]
 })
 export default class LoginPage extends Vue {
   loading: Boolean = false
-  login: String = 'admin'
+  username: String = 'admin'
   password: String = 'qwerty'
   showSignInTip: Boolean = true
-
-  signIn(): void {
-    this.loading = true
-    // this.$axios.$post('/api/Account/Login', {
-    this.$auth.loginWith('local', {
-      data: {
-        userName: this.login,
-        password: this.password
-      }
-    })
-      .then(() => {
-        this.loading = false
-      })
-  }
 }
 </script>
 

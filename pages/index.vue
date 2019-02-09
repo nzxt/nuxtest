@@ -1,36 +1,40 @@
 <template>
-  <v-layout justify-center align-center no-wrap>
-    <v-responsive height="225" max-width="700">
+  <v-layout
+    class="page"
+    justify-center
+    no-wrap
+  >
+    <v-responsive height="225" max-width="700" class="mt-5">
       <svg viewbox="0 0 700 225">
         <clipPath id="textClip" class="filled-heading">
           <text y="70">
-            You
+            {{ $t('svg.text1[0]') }}
           </text>
           <text y="145">
-            Are
+            {{ $t('svg.text1[1]') }}
           </text>
           <text y="220">
-            Welcome
+            {{ $t('svg.text1[2]') }}
           </text>
 
           <text y="70">
-            Sales
+            {{ $t('svg.text2[0]') }}
           </text>
           <text y="145">
-            Assessment
+            {{ $t('svg.text2[1]') }}
           </text>
           <text y="220">
-            Center
+            {{ $t('svg.text2[2]') }}
           </text>
 
           <text y="70">
-            Let's
+            {{ $t('svg.text3[0]') }}
           </text>
           <text y="145">
-            Play
+            {{ $t('svg.text3[1]') }}
           </text>
           <text y="220">
-            Tests
+            {{ $t('svg.text3[2]') }}
           </text>
         </clipPath>
 
@@ -99,12 +103,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-@Component({
-  components: {
-    // Logo: () => import('~/components/Logo.vue'),
-    // VuetifyLogo: () => import('~/components/VuetifyLogo.vue')
-  }
-})
+@Component
 export default class IndexPage extends Vue {
   mounted() : void {
     const colors = ['#f5a147', '#51cad8', '#112b39']
@@ -150,6 +149,37 @@ export default class IndexPage extends Vue {
 }
 </script>
 
+<style>
+svg {
+  width: 100%;
+  height: 100%;
+}
+.filled-heading {
+  text-transform: uppercase;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 7em;
+  font-weight: 600;
+  line-height: 0.9;
+}
+
+#background path {
+  animation: pulse 5s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+#textClip text {
+  display: none;
+}
+#textClip text:nth-of-type(n + 1):nth-of-type(-n + 3) {
+  display: inline;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0) rotate(33deg); }
+  35%, 65% { transform: scale(1) rotate(0deg); }
+}
+</style>
+
 <!-- <style>
 /* Basic styling */
 svg {
@@ -179,34 +209,3 @@ svg {
   100% { transform: rotate(360deg); }
 }
 </style> -->
-
-<style>
-svg {
-    width: 100%;
-    height: 100%;
-}
-.filled-heading {
-    text-transform: uppercase;
-    font-family: 'Exo 2', sans-serif;
-    font-size: 7em;
-    font-weight: 600;
-    line-height: 0.9;
-}
-
-#background path {
-    animation: pulse 5s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite;
-    transform-origin: 50% 50%;
-    transform-box: fill-box;
-}
-#textClip text {
-    display: none;
-}
-#textClip text:nth-of-type(n + 1):nth-of-type(-n + 3) {
-    display: inline;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(0) rotate(33deg); }
-    35%, 65% { transform: scale(1) rotate(0deg); }
-}
-</style>

@@ -19,6 +19,11 @@ module.exports = {
     // 'semi': ['error', 'always'],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'vue/no-v-html': ['off'],
+    'no-unused-vars': 'warn',
+    'vue/no-v-html': 'warn',
+    'vue/no-parsing-error': 'warn',
+    'vue/no-unused-vars': 'warn',
+    'vue/return-in-computed-property': 'warn',
+    'vue/no-use-v-if-with-v-for': 'warn'
   }
 }

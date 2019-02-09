@@ -23,11 +23,11 @@ module.exports = {
     }
   ],
   defaultLocale: 'en',
-  seo: false,
+  seo: true,
   lazy: true,
   detectBrowserLanguage: {
-    cookieKey: 'i18n_redirected',
-    useCookie: true
+    useCookie: true,
+    cookieKey: 'i18n_redirected'
   },
   langDir: 'config/locales/',
   parsePages: false,

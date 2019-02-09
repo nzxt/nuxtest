@@ -17,7 +17,17 @@ export default function ({ $axios } : any) {
     console.log(`Making request to ${config.url}`) // eslint-disable-line
   })
 
-  // $axios.onResponse(response => debugger) // eslint-disable-line
+  // $axios.interceptors.response.use((response) => {
+  //   return response
+  // }, function (error) {
+  //   // Do something with response error
+  //   if (error.response.status === 401) {
+  //     console.log('unauthorized, logging out ...')
+  //     $auth.logout()
+  //     router.replace('/account/login')
+  //   }
+  //   return Promise.reject(error.response)
+  // })
 
   // $axios.onError(error => {
   //   const code = parseInt(error.response && error.response.status)

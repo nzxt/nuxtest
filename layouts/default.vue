@@ -11,7 +11,7 @@
         <v-list-tile
           v-for="(item, i) in items"
           :key="i"
-          :to="item.to"
+          :to="localePath(item.component)"
           router
           exact
         >
@@ -24,9 +24,9 @@
         </v-list-tile>
       </v-list>
 
-      <v-divider v-if="$route.path === '/typescript'" />
+      <v-divider v-if="$route.path.includes('/typescript')" />
 
-      <v-list v-if="$route.path === '/typescript'" two-line class="py-0">
+      <v-list v-if="$route.path.includes('/typescript')" two-line class="py-0">
         <!-- <v-list two-line> -->
         <v-list-tile avatar href="#">
           <v-list-tile-avatar>
@@ -110,7 +110,7 @@
       <n-link id="logo" to="/redirect">
         <v-toolbar-title
           :class="`${darkTheme ? 'grey--text text--darken-2' : 'grey--text text--lighten-1'}`"
-          v-html="title"
+          v-html="$t('title_html')"
         />
       </n-link>
       <v-spacer />
@@ -148,7 +148,7 @@
       </v-btn>
       <v-btn
         icon
-        @click="$router.push('/account/login')"
+        :to="localePath('login')"
       >
         <v-icon class="mdi-36px">
           mdi-account-circle-outline
@@ -158,7 +158,7 @@
 
     <v-content>
       <v-container fluid fill-height>
-        <nuxt class="page" />
+        <nuxt />
       </v-container>
     </v-content>
 
@@ -199,40 +199,38 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import AuthMixin from '~/mixins/auth'
 
-@Component({})
+@Component({
+  mixins: [AuthMixin]
+})
 export default class DefaultLayout extends Vue {
   clipped: Boolean = false
   drawer: Boolean = true
   fixed: Boolean = false
-  miniVariant: Boolean = false
+  miniVariant: Boolean = true
   right: Boolean = true
   rightDrawer: Boolean = false
   darkTheme: Boolean = false
-
   items: Array<any> = [
     {
       icon: 'mdi-apps',
       title: 'Welcome',
-      to: '/'
+      component: 'index'
     },
     {
       icon: 'mdi-language-typescript',
       title: 'TypeScript',
-      to: '/typescript'
+      component: 'typescript'
     },
     {
       icon: 'mdi-vuejs',
       title: 'About',
-      to: '/about'
+      component: 'about'
     }
   ]
 
-  signOut() {
-    return this.$auth.logout()
-  }
-
-  get title(): String { return '<span class="deep-orange--text text--lighten1">S</span>ales <span class="deep-orange--text text--lighten1">A</span>ssessment <span class="deep-orange--text text--lighten1">C</span>enter' };
+  // get title(): String { return '<span class="deep-orange--text text--lighten1">S</span>ales <span class="deep-orange--text text--lighten1">A</span>ssessment <span class="deep-orange--text text--lighten1">C</span>enter' };
   get description(): String | undefined { return (process.env.DESCRIPTION || '[SAC]') };
 }
 </script>

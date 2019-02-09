@@ -1,8 +1,28 @@
 {
+  "svg": {
+	"text1": [
+	  "Рады",
+	  "Вас",
+	  "Видеть"
+	],
+	"text2": [
+	  "Центр",
+	  "Оценивания",
+	  "Продаж"
+	],
+	"text3": [
+	  "Давай",
+	  "Пройдём",
+	  "Тесты"
+	]
+  },
+  "title": "Центр оценки продаж",
+  "title_html": "<span class='deep-orange--text text--lighten1'>Ц</span>ентр <span class='deep-orange--text text--lighten1'>О</span>ценивания <span class='deep-orange--text text--lighten1'>П</span>родаж",
   "actions": "Действия",
   "yes": "Да",
   "no": "Нет",
   "edit": "Редактировать",
+  "username": "Имя пользователя",
   "password": "Пароль",
   "password_confirm": "Подтвердите пароль",
   "signin": "Войти",
@@ -18,7 +38,7 @@
   "update": "Обновить",
   "messages": {
     "signin_title": "Войдите в свой аккаунт",
-    "signin_tip": "Привет, Пользователь! Войди, для начала.."
+    "signin_tip": "Привет, Пользователь! Войдите, для начала.."
   },
   "forms": {
     "errors": {

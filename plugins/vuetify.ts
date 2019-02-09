@@ -5,7 +5,7 @@ import en from 'vuetify/es5/locale/en'
 import ru from 'vuetify/es5/locale/ru'
 import uk from 'vuetify/es5/locale/uk'
 
-import colors from 'vuetify/es5/util/colors'
+import colors from 'vuetify/src/util/colors'
 
 Vue.use(Vuetify, {
   iconfont: 'mdi',

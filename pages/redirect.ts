@@ -1,8 +1,9 @@
 import { Vue, Component } from 'vue-property-decorator'
 
 @Component({
-  fetch({ redirect }) {
-    redirect('/typescript')
+  fetch({ app, redirect }) {
+    const tsLocalePath = app.localePath('typescript')
+    redirect('301', tsLocalePath)
   }
 })
-export default class Index extends Vue {}
+export default class TypescriptRedirect extends Vue {}
