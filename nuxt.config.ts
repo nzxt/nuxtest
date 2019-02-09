@@ -85,7 +85,7 @@ module.exports = {
     credentials: true,
     baseURL: API_URL,
     redirectError: {
-      401: '/account/login'
+      // 401: '/account/login'
       // 404: '/notfound'
     }
   },

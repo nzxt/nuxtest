@@ -86,7 +86,7 @@ export default {
 </script> -->
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
   layout: 'account'
@@ -98,7 +98,7 @@ export default class LoginPage extends Vue {
   showSignInTip: Boolean = true
 
   signIn(): void {
-    this.loading = true;
+    this.loading = true
     // this.$axios.$post('/api/Account/Login', {
     this.$auth.loginWith('local', {
       data: {
@@ -107,8 +107,8 @@ export default class LoginPage extends Vue {
       }
     })
       .then(() => {
-        this.loading = false;
-      });
+        this.loading = false
+      })
   }
 }
 </script>

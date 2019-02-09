@@ -16,7 +16,7 @@ module.exports = {
     // 'linebreak-style': ['error', 'windows'],
     'no-trailing-spaces': ['error'],
     'quotes': ['error', 'single'],
-    'semi': ['error', 'always'],
+    // 'semi': ['error', 'always'],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'vue/no-v-html': ['off'],

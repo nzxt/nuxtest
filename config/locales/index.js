@@ -36,4 +36,4 @@ module.exports = {
     fallbackLocale: 'en',
     vueI18nLoader: false // If true, vue-i18n-loader is added to Nuxt's Webpack config
   }
-};
+}

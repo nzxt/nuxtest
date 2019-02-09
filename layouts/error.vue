@@ -51,9 +51,9 @@ export default {
   data() {
     return {
       gradient: 'to top right, rgba(128, 128, 128, .9), rgba(228, 228, 228, 1)'
-    };
+    }
   }
-};
+}
 </script>
 
 <style>

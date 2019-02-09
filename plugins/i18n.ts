@@ -11,8 +11,8 @@ export default ({ app }) => {
   // };
 
   // onLanguageSwitched called right after a new locale has been set
-  debugger;
+  debugger
   app.i18n.onLanguageSwitched = (oldLocale, newLocale) => {
-    console.log(oldLocale, newLocale);
-  };
-};
+    console.log(oldLocale, newLocale)
+  }
+}

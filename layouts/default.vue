@@ -198,7 +198,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class DefaultLayout extends Vue {
@@ -229,11 +229,11 @@ export default class DefaultLayout extends Vue {
   ]
 
   signOut() {
-    return this.$auth.logout();
+    return this.$auth.logout()
   }
 
-  get title(): String { return '<span class="deep-orange--text text--lighten1">S</span>ales <span class="deep-orange--text text--lighten1">A</span>ssessment <span class="deep-orange--text text--lighten1">C</span>enter'; };
-  get description(): String | undefined { return (process.env.DESCRIPTION || '[SAC]'); };
+  get title(): String { return '<span class="deep-orange--text text--lighten1">S</span>ales <span class="deep-orange--text text--lighten1">A</span>ssessment <span class="deep-orange--text text--lighten1">C</span>enter' };
+  get description(): String | undefined { return (process.env.DESCRIPTION || '[SAC]') };
 }
 </script>
 
