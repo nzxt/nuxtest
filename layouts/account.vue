@@ -16,6 +16,30 @@
 
       <v-spacer />
 
+      <v-divider inset vertical class="mx-3 hidden-sm-and-down" />
+
+      <v-layout row align-center hidden-sm-and-down style="max-width: 110px">
+        <v-tooltip
+          v-for="locale in $i18n.locales"
+          :key="locale.code"
+          bottom
+        >
+          <n-link
+            slot="activator"
+            :to="switchLocalePath(locale.code)"
+          >
+            <div class="ma-2">
+              <flag :iso="locale.flag" />
+            </div>
+          </n-link>
+          <span>{{ locale.name }}</span>
+        </v-tooltip>
+      </v-layout>
+
+      <v-divider inset vertical class="mx-3 hidden-sm-and-down" />
+
+      <v-spacer />
+
       <v-btn
         icon
         @click.stop="$router.push('/account/login')"

@@ -2,19 +2,19 @@
   <v-container>
     <v-layout justify-center>
       <v-flex xs12 sm8 md6>
-        <v-card class="elevation-12 card--flex-toolbar" style="z-index:9">
+        <v-card class="elevation-12 card--flex-toolbar">
           <v-toolbar card prominent dark color="grey darken-1">
             <v-toolbar-title>
-              SignIn please..
+              {{ $t('messages.signin_tip') }}
             </v-toolbar-title>
             <v-spacer />
-            <v-tooltip left>
+            <v-tooltip v-model="showSignInTip" left>
               <v-btn slot="activator" icon large>
-                <v-icon large>
+                <v-icon class="mdi-36px">
                   mdi-account-circle
                 </v-icon>
               </v-btn>
-              <span>Welcome, User!<br>Enter you credits..</span>
+              <span>{{ $t('messages.signin_tip') }}</span>
             </v-tooltip>
           </v-toolbar>
 
@@ -95,6 +95,7 @@ export default class LoginPage extends Vue {
   loading: Boolean = false
   login: String = 'admin'
   password: String = 'qwerty'
+  showSignInTip: Boolean = true
 
   signIn(): void {
     this.loading = true;
@@ -115,4 +116,5 @@ export default class LoginPage extends Vue {
 <style lang="stylus">
 .card--flex-toolbar
   margin-top -88px
+  z-index 2
 </style>

@@ -16,6 +16,10 @@
   "back": "Back",
   "save": "Save",
   "update": "Update",
+  "messages": {
+    "signin_title": "Enter your account",
+    "signin_tip": "Hi, User! SignIn, first.."
+  },
   "forms": {
     "errors": {
       "required": "Please fill this out.",
