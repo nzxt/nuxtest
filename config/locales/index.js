@@ -22,7 +22,7 @@ module.exports = {
       file: 'ua.json'
     }
   ],
-  defaultLocale: 'en',
+  defaultLocale: 'uk',
   seo: true,
   lazy: true,
   detectBrowserLanguage: {

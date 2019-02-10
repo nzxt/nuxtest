@@ -113,7 +113,7 @@ export default class IndexPage extends Vue {
     const blobs = document.querySelectorAll('#background path')
 
     function colorBlobs() {
-      blobs.forEach((blob) => {
+      Array.from(blobs).forEach((blob) => {
         blob.style.fill = colors[Math.floor(Math.random() * colors.length)]
       })
     }

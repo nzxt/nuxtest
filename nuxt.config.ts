@@ -61,10 +61,10 @@ module.exports = {
   plugins: [
     '@/plugins/axios',
     '@/plugins/vuetify',
-    '@/plugins/i18n',
+    // '@/plugins/i18n',
+    '@/plugins/noty',
     '@/plugins/filters',
     '@/plugins/flag-icon',
-    '@/plugins/noty',
   ],
 
   /*
@@ -73,8 +73,8 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/dotenv',
-    '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/axios',
     '@nuxtjs/auth',
     ['nuxt-i18n', i18n]
   ],
@@ -88,10 +88,10 @@ module.exports = {
     proxy: false,
     credentials: true,
     baseURL: API_URL,
-    // redirectError: {
-      // 401: '/account/login/'
-      // 404: '/notfound'
-    // }
+    redirectError: {
+      401: '/login/',
+      404: '/notfound'
+    }
   },
 
   /*
@@ -124,13 +124,13 @@ module.exports = {
     redirect: {
       login: '/login',
       logout: '/login',
-      callback: '/',
+      callback: false,
       home: '/'
     },
     localStorage: false,
-    cookie: false,
-    // scopeKey: 'scope',
-    plugins: [ '@/plugins/auth' ]
+    cookie: true,
+    scopeKey: 'scope',
+    // plugins: [ '@/plugins/auth' ]
   },
   router: {
     middleware: ['auth']

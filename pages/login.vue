@@ -2,7 +2,7 @@
   <v-container>
     <v-layout justify-center>
       <v-flex xs12 sm8 md7>
-        <v-card class="card--flex-toolbar">
+        <v-card class="card--flex-toolbar" :color="loginHasError ? 'red' : 'warning'">
           <v-toolbar card prominent dark color="grey darken-2">
             <v-toolbar-title>
               {{ $t('messages.signin_title') }}
@@ -42,7 +42,7 @@
             <v-card-actions>
               <v-btn
                 block
-                color="light-green darken-3"
+                color="primary darken-3"
                 class="elevation-0"
                 :loading="loading"
               >
@@ -55,33 +55,6 @@
     </v-layout>
   </v-container>
 </template>
-
-<!-- <script>
-export default {
-  data() {
-    return {
-      login: '',
-      password: ''
-    };
-  },
-
-  methods: {
-    async signIn() {
-      debugger;
-      // this.$axios.$post('/api/Account/Login', {
-      await this.$auth.loginWith('local', {
-        data: {
-          userName: this.login,
-          password: this.password
-        }
-      })
-        .then((response) => {
-          debugger;
-        });
-    }
-  }
-};
-</script> -->
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'

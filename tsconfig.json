@@ -5,17 +5,19 @@
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
+    "strictFunctionTypes": false,
     "noImplicitReturns": true,
     "noImplicitAny": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "moduleResolution": "node",
+    "removeComments": false,
     "skipLibCheck": true,
     "module": "esnext",
     "target": "es5",
     "lib": [
       "esnext",
-      "dom"
+      "dom",
     ],
     "types": [
       "@types/node",
